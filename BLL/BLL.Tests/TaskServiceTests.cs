@@ -26,7 +26,7 @@ public class TaskServiceTests
         _taskService = new TaskService(_unitOfWorkMock.Object, _mapperMock.Object);
     }
 
-    // ---------------------- Constructor ------------------------
+    
 
     [Fact]
     public void Constructor_NullUnitOfWork_Throws()
@@ -34,7 +34,7 @@ public class TaskServiceTests
         Assert.Throws<ArgumentNullException>(() => new TaskService(null, _mapperMock.Object));
     }
 
-    // ---------------------- GetTaskById ------------------------
+    
 
     [Fact]
     public void GetTaskById_UserNotAdminOrDirector_Throws()
@@ -68,7 +68,7 @@ public class TaskServiceTests
         _mapperMock.Verify(m => m.Map<TaskDto>(entity), Times.Once);
     }
 
-    // ---------------------- GetAll ------------------------
+    
 
     [Fact]
     public void GetAll_ReturnsMappedDtos()
@@ -96,7 +96,7 @@ public class TaskServiceTests
         _mapperMock.Verify(m => m.Map<IEnumerable<TaskDto>>(entities), Times.Once);
     }
 
-    // ---------------------- CreateTask ------------------------
+    
 
     [Fact]
     public void CreateTask_UserNotFound_Throws()
@@ -130,7 +130,7 @@ public class TaskServiceTests
         _unitOfWorkMock.Verify(u => u.Save(), Times.Once);
     }
 
-    // ---------------------- UpdateTask ------------------------
+    
 
     [Fact]
     public void UpdateTask_TaskNotFound_Throws()
@@ -165,7 +165,7 @@ public class TaskServiceTests
         _unitOfWorkMock.Verify(u => u.Save(), Times.Once);
     }
 
-    // ---------------------- DeleteTask ------------------------
+    
 
     [Fact]
     public void DeleteTask_NotFound_Throws()

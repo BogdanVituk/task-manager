@@ -1,0 +1,21 @@
+# Тимчасові папки компіляції (bin та obj з твого фото)
+[Bb]in/
+[Oo]bj/
+
+# Папка repos (якщо це випадкова копія або інший проєкт)
+repos/
+
+# Налаштування Visual Studio та Rider
+.vs/
+.idea/
+*.user
+*.userosscache
+*.sln.docstates
+
+# Файли користувача та кеш
+*.suo
+*.user
+*.userosscache
+
+# Локальні секрети та налаштування (якщо з'являться)
+appsettings.Development.json

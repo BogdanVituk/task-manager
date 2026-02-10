@@ -95,10 +95,9 @@ namespace BLL.Services.Impl
             if (!string.IsNullOrEmpty(dto.Description))
                 task.Description = dto.Description;
 
-            //if (!dto.Status)
-            //    task.Status = dto.Status;
+            if (dto.Status.HasValue)
+                task.Status = dto.Status.Value;
 
-           
             _unitOfWork.Tasks.Update(task);
             _unitOfWork.Save();
 
@@ -141,7 +140,9 @@ namespace BLL.Services.Impl
         {
             var tasks = _unitOfWork.Tasks.GetByStatus(status);
 
-            return _mapper.Map<Task<IEnumerable<TaskDto>>>(tasks);
+            var result = _mapper.Map<IEnumerable<TaskDto>>(tasks);
+
+            return Task.FromResult(result);
         }
 
 

@@ -76,8 +76,7 @@ namespace BLL.Services.Impl
             if (!string.IsNullOrEmpty(dto.Password))
                 user.Password = dto.Password; 
 
-            //if (!string.IsNullOrEmpty(dto.Role))
-            //    user.Role = dto.Role;
+        
 
             _unitOfWork.Users.Update(user);
             _unitOfWork.Save();

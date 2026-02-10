@@ -26,14 +26,14 @@ public class UserServiceTests
         _userService = new UserService(_unitOfWorkMock.Object, _mapperMock.Object);
     }
 
-    // ---------------------- Constructor ------------------------
+   
     [Fact]
     public void Constructor_NullUnitOfWork_Throws()
     {
         Assert.Throws<ArgumentNullException>(() => new UserService(null, _mapperMock.Object));
     }
 
-    // ---------------------- GetUserById ------------------------
+    
     [Fact]
     public void GetUserById_UserNotAdmin_Throws()
     {
@@ -63,7 +63,7 @@ public class UserServiceTests
         Assert.Equal("test@test.com", result.Email);
     }
 
-    // ---------------------- GetAll ------------------------
+    
     [Fact]
     public void GetAll_ReturnsMappedDtos()
     {
@@ -87,7 +87,7 @@ public class UserServiceTests
         Assert.Equal(2, result.Count());
     }
 
-    // ---------------------- CreateUser ------------------------
+    
     [Fact]
     public void CreateUser_EmailAlreadyExists_Throws()
     {
@@ -117,7 +117,7 @@ public class UserServiceTests
         _unitOfWorkMock.Verify(u => u.Save(), Times.Once);
     }
 
-    // ---------------------- UpdateUser ------------------------
+    
     [Fact]
     public void UpdateUser_UserNotFound_Throws()
     {
@@ -144,7 +144,7 @@ public class UserServiceTests
         _unitOfWorkMock.Verify(u => u.Save(), Times.Once);
     }
 
-    // ---------------------- DeleteUser ------------------------
+   
     [Fact]
     public void DeleteUser_UserNotFound_Throws()
     {
